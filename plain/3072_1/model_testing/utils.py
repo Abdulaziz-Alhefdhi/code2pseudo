@@ -197,3 +197,4 @@ def decode_sequence(input_seq, model, max_decoder_seq_length, target_token_index
             break
         decoded_sentence.append(reverse_target_token_index[idx])
     return decoded_sentence
+
