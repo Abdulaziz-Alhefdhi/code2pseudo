@@ -163,7 +163,7 @@ def token_integer_mapping(input_tokens, target_tokens):
 
 def build_model(latent_dim, num_encoder_tokens, num_decoder_tokens):
     encoder_inputs = Input(shape=(None,))
-    # In embedding layer, input_dim should be vocab_size+1!
+    # In embedding layer, input_dim should be vocab_size+1 when mask_zero is set to True!
     en_x = Embedding(num_encoder_tokens+1, latent_dim, mask_zero=True)(encoder_inputs)
     ###en_x = LSTM(latent_dim, return_sequences=True)(en_x)
     ###encoder_outputs, state_h, state_c = LSTM(latent_dim, return_sequences=True, return_state=True)(en_x)

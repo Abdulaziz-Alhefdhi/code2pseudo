@@ -4,7 +4,6 @@ from nltk.translate.bleu_score import corpus_bleu
 from collections import defaultdict
 
 
-latent_dim = 1024     # Latent dimensionality of the encoding space.
 num_samples = 20000  # Number of samples to train on.
 max_input_length = 1000000  # Number of largest acceptable input length
 max_target_length = 1800  # Number of largest acceptable target length
@@ -28,7 +27,7 @@ for a_list in test_do.target_lists:
 ref_dict = defaultdict(list)
 for i, a_list in enumerate(test_do.input_lists):
     ref_dict[tuple(a_list)].append(references[i])
-# Make them in 1000 items to compare against each candidate
+# Make them in same number as candidates to compare against each candidate
 refs = []
 for item in test_do.input_lists:
     refs.append(ref_dict[tuple(item)])
